@@ -29,8 +29,6 @@ jobs:
           echo "Error: dist/ folder not found. Build step might have failed."
           exit 1
         fi
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3.1.0
-      with:
-        name: build-files
-        path: dist/
+    - name: List build output
+      run: ls -la dist/
+      if: success() && runner.os == 'Linux'
